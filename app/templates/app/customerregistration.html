@@ -1,0 +1,126 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Customer Registration{% endblock title %}
+{% block main-content %}
+<style>
+    body {
+        background: linear-gradient(to right,rgb(89, 97, 105), #4ca1af);
+        color: #fff;
+        font-family: 'Roboto', sans-serif;
+    }
+    .container {
+        margin-top: 100px;
+    }
+    .registration-box {
+        background: rgba(122, 99, 99, 0.15);
+        backdrop-filter: blur(15px);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
+        color: #fff;
+    }
+    h3 {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #ffd700;
+    }
+    hr {
+        border-top: 3px solid #ffd700;
+        width: 50px;
+        margin: 20px auto;
+    }
+    form input[type="submit"] {
+        background: #4ca1af;
+        border: none;
+        color: #fff;
+        font-weight: bold;
+        padding: 12px 25px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        border-radius: 50px;
+        font-size: 18px;
+        width: 100%;
+    }
+    form input[type="submit"]:hover {
+        background: #2c3e50;
+    }
+    form a {
+        color: #ffd700;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    form a:hover {
+        text-decoration: underline;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-control {
+        background: #34495e;
+        color: #fff;
+        border-radius: 10px;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #4ca1af;
+    }
+    .form-control:focus {
+        outline: none;
+        border-color: #ffd700;
+    }
+    .text-danger {
+        color:rgb(14, 13, 13) !important;
+    }
+    .alert {
+        margin-top: 15px;
+    }
+    .text-center {
+        margin-top: 20px;
+    }
+    .text-center small {
+        color:rgb(233, 230, 220);
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+            <div class="registration-box">
+                <h3>Customer Registration</h3>
+                <hr>
+                <form action="" method="post" novalidate>
+                    {% csrf_token %}
+                    {% for fm in form %}
+                    <div class="form-group">
+                        {{fm.label_tag}} 
+                        <div class="form-control">
+                            {{fm}}
+                        </div>
+                        <small class="text-danger">{{fm.errors|striptags}}</small>
+                    </div>
+                    {% endfor %}
+                    <input type="submit" value="Submit">
+                    <div class="text-center">
+                        <small>Existing User? <a href="{% url 'login' %}" class="text-danger">Login Now</a></small>
+                    </div>
+
+                    {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger my-3">{{error}}</p>
+                    {% endfor %}
+                    {% endif %}
+
+                    {% if messages %}
+                    {% for msg in messages %}
+                    <div class="alert alert-{{msg.tags}}" role="alert">
+                        {{msg}}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}

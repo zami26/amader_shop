@@ -1,0 +1,170 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        {% if cart %}
+        <h1 class="text-center mb-5 cart-title">Shopping Cart</h1>
+        <div class="col-sm-8">
+            <div class="card cart-card shadow-lg">
+                <div class="card-body">
+                    <h3>Cart</h3>
+                    
+                    {% for item in cart %}
+                    <div class="row cart-item" id="cart-item-{{ item.product.id }}">
+                        <div class="col-sm-3 text-center align-self-center">
+                            <img src="{{ item.product.product_image.url }}" class="img-fluid img-thumbnail shadow-sm" alt="{{ item.product.title }}">
+                        </div>
+                        <div class="col-sm-9">
+                            <h5>{{ item.product.title }}</h5>
+                            <p class="mb-2 text-muted small">{{ item.product.prodapp }}</p>
+                            <div class="my-3">
+                                <label for="quantity" class="quantity-label">Quantity:</label>
+                                <a class="minus-cart btn" pid="{{ item.product.id }}"> 
+                                    <i class="fas fa-minus-square fa-lg"></i>
+                                </a> 
+                                <span id="quantity-{{ item.product.id }}" class="quantity-number">{{ item.quantity }}</span>
+                                <a class="plus-cart btn" pid="{{ item.product.id }}"> 
+                                    <i class="fas fa-plus-square fa-lg"></i>
+                                </a>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <a href="{% url 'removecart' %}?prod_id={{ item.product.id }}" class="remove-cart btn btn-danger mr-3">Remove Item</a>
+                                <p class="mb-0">
+                                    <span><strong>Tk. {{ item.product.discounted_price }}</strong></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="text-muted">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card summary-card shadow-lg">
+                <div class="card-body">
+                    <h3>Total Amount</h3>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                            Amount <span id="amount">Tk. {{ amount }}</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                            Shipping <span>Tk. 100.00</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                            <div>
+                                <strong>Total</strong> <small>(including VAT)</small>
+                            </div>
+                            <span id="totalamount"><strong>Tk. {{ totalamount }}</strong></span>
+                        </li>
+                    </ul>
+                    <div class="d-grid">
+                        <a href="{% url 'checkout' %}" class="btn btn-primary">Place Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <h1 class="text-center mb-5">Cart is Empty</h1>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const updateCartQuantity = (productId, action) => {
+            fetch(`/update-cart/?product_id=${productId}&action=${action}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById(`quantity-${productId}`).innerText = data.new_quantity;
+                document.getElementById('amount').innerText = `Tk. ${data.amount}`;
+                document.getElementById('totalamount').innerText = `Tk. ${data.totalamount}`;
+            })
+            .catch(error => {
+                console.error('Error updating cart:', error);
+            });
+        };
+
+        document.querySelectorAll('.plus-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('pid');
+                updateCartQuantity(productId, 'increase');
+            });
+        });
+
+        document.querySelectorAll('.minus-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = this.getAttribute('pid');
+                updateCartQuantity(productId, 'decrease');
+            });
+        });
+    });
+</script>
+
+{% endblock main-content %}
+
+{% block custom_styles %}
+<style>
+    .cart-title {
+        font-family: 'Arial', sans-serif;
+        color: #34495e;
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    .cart-card, .summary-card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item {
+        margin-bottom: 20px;
+    }
+
+    .quantity-label {
+        font-size: 16px;
+    }
+
+    .quantity-number {
+        font-size: 18px;
+        font-weight: bold;
+        color: #2ecc71;
+        margin: 0 10px;
+    }
+
+    .remove-cart {
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .remove-cart:hover {
+        background-color: #e74c3c;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+    }
+
+    .summary-card .list-group-item {
+        border: none;
+        font-size: 16px;
+    }
+
+    .summary-card .btn-primary {
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .summary-card .btn-primary:hover {
+        background-color: #2980b9;
+    }
+</style>
+{% endblock %}

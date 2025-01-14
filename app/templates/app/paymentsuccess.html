@@ -1,0 +1,38 @@
+
+{% extends 'app/base.html' %}
+{% block title %}Payment Confirmation{% endblock title %}
+
+{% block main-content %}
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h3 class="text-success">Payment Successful!</h3>
+        <p>Your payment has been successfully processed.</p>
+    </div>
+    <div class="text-center">
+        <iframe src="https://giphy.com/embed/ibolLe3mOqHE3PQTtk" width="200" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    </div>
+
+    <div class="card p-4 mb-4 shadow-sm">
+        <h4 class="text-secondary">Transaction Details</h4>
+        <div class="mb-3">
+            <label for="transaction_id" class="form-label">Transaction ID</label>
+            <input type="text" id="transaction_id" class="form-control" value="{{ transaction_id }}" readonly>
+        </div>
+        <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="text" id="amount" class="form-control" value="{{ amount }}" readonly>
+        </div>        
+        <div class="mb-3">
+            <label for="payment_status" class="form-label">Payment Status</label>
+            <input type="text" id="payment_status" class="form-control" value="Success" readonly>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{% url 'home' %}" class="btn btn-outline-dark">Back to Home</a>
+    </div>
+<br>
+<br>
+<br>
+</div>
+{% endblock %}

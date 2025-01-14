@@ -1,0 +1,126 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Contact{% endblock title %}
+
+{% block main-content %}
+<section class="contact-us py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold display-4 text-dark animate__animated animate__fadeInUpBig">Contact Us</h2>
+            <p class="text-secondary animate__animated animate__fadeInUpBig animate__delay-1s">We’re here to help you with all your queries! Reach out to us anytime.</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center contact-item animate__animated animate__zoomIn animate__delay-1s animate__pulse animate__infinite">
+                <h4 class="fw-bold text-dark" style="font-family: 'Georgia', serif;"> Address</h4>
+                <p class="text-muted" style="font-family: 'Arial', sans-serif;">Amader Shop Head Office<br>Chattogram, Bangladesh</p>
+            </div>
+            <div class="col-md-4 text-center contact-item animate__animated animate__zoomIn animate__delay-2s">
+                <h4 class="fw-bold text-primary" style="font-family: 'Georgia', serif;"> Phone</h4>
+                <p class="text-muted" style="font-family: 'Arial', sans-serif;">
+                    <a href="tel:0100000000" class="text-decoration-none text-dark">0100000000</a><br>
+                    <span class="text-muted">Our support team is available 24/7</span>
+                </p>
+            </div>
+            <div class="col-md-4 text-center contact-item animate__animated animate__zoomIn animate__delay-3s">
+                <h4 class="fw-bold text-info" style="font-family: 'Georgia', serif;"> Email</h4>
+                <p class="text-muted" style="font-family: 'Arial', sans-serif;">
+                    <a href="mailto:Amader Shopr@gmail.com" class="text-decoration-none text-dark">Amader Shop@gmail.com</a><br>
+                    <span class="text-muted">We’d love to hear from you!</span>
+                </p>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <h4 class="fw-bold text-dark" style="font-family: 'Georgia', serif;"> Social Media</h4>
+            <p class="text-muted" style="font-family: 'Arial', sans-serif;">Join Us</p>
+            <a href="#" class="btn btn-outline-secondary mx-2 animate__animated animate__pulse animate__delay-2s"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="#" class="btn btn-outline-info mx-2 animate__animated animate__pulse animate__delay-3s"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#" class="btn btn-outline-danger mx-2 animate__animated animate__pulse animate__delay-4s"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes fadeInUpBig {
+        0% { opacity: 0; transform: translateY(50px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes zoomIn {
+        0% { opacity: 0; transform: scale(0.9); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    .contact-item {
+        background-color: #ffffff;
+        border-radius: 20px;
+        padding: 25px;
+        margin: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        border: 2px solid #e0e0e0;
+    }
+
+    .contact-item:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        border-color: #007bff;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px 24px;
+        border-radius: 50px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+        transform: scale(1.1) rotate(3deg);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .animate__animated {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+
+    .animate__fadeInUpBig {
+        animation-name: fadeInUpBig;
+    }
+
+    .animate__zoomIn {
+        animation-name: zoomIn;
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+
+    .animate__pulse {
+        animation-name: pulse;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+
+    .text-primary, .text-success, .text-danger, .text-info, .text-warning {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .row {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+        }
+    }
+</style>
+
+{% endblock main-content %}

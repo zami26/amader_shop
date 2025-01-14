@@ -1,0 +1,107 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Contact{% endblock title %}
+
+{% block main-content %}
+<div class="container mt-3">
+    <h2 class="text-center text-primary mb-4 animate__animated animate__fadeIn">About Us</h2>
+    <div class="row container">
+        <p class="fs-4 text-center text-dark animate__animated animate__fadeIn animate__delay-1s bg-light p-4 rounded">
+            Welcome to Amader Shop – your one-stop online destination for everything you need!
+            At Amader Shop, we believe in making life simpler, stylish, and more convenient by bringing the best of fashion, lifestyle, and your essentials right to your doorstep. Whether you're looking for trendy Attar ,Perfume ,Scent, agar,books,ipad and laptop to upgrade your living space, Amader Shop has it all.
+        </p>
+    </div>
+
+    <h2 class="text-center text-white mt-5 mb-3 animate__animated animate__fadeIn animate__delay-2s bg-info p-3 rounded">Mission</h2>
+    <div class="row container fs-4 text-dark animate__animated animate__fadeIn animate__delay-3s bg-white p-4 rounded">
+        <ol class="list-group list-group-flush">
+            <li class="list-group-item list-item-style"><strong>Customer-Focused Shopping:</strong> To put our customers at the center by creating a smooth and enjoyable online shopping experience that aligns with their desires and expectations.</li>
+<li class="list-group-item list-item-style"><strong>Uncompromising Quality:</strong> To guarantee that every product we provide upholds superior standards of reliability, practicality, and aesthetics, offering great value for our customers.</li>
+<li class="list-group-item list-item-style"><strong>Affordable Excellence:</strong> To deliver top-notch products at fair prices, ensuring they remain accessible to customers everywhere.</li>
+<li class="list-group-item list-item-style"><strong>Innovative Online Shopping:</strong> To continually advance our platform with state-of-the-art technology, making the shopping process faster, smarter, and more enjoyable.</li>
+<li class="list-group-item list-item-style"><strong>Commitment to Sustainability:</strong> To embrace environmentally friendly practices and support sustainable products, fostering a greener and healthier planet for everyone.</li>
+
+        </ol>
+    </div>
+    
+
+    <h2 class="text-center text-white mt-5 mb-3 animate__animated animate__fadeIn animate__delay-4s bg-warning p-3 rounded">Why Choose Us?</h2>
+    <div class="row container fs-4 text-dark animate__animated animate__fadeIn animate__delay-5s bg-light p-4 rounded">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item list-item-style"><strong>Wide Product Range:</strong> From daily essentials to premium goods, we offer a diverse selection to suit every lifestyle and preference.</li>
+            <li class="list-group-item list-item-style"><strong>Trusted Quality:</strong> We uphold rigorous quality standards, ensuring every product is reliable and up to expectations before it reaches your hands.</li>
+            <li class="list-group-item list-item-style"><strong>Budget-Friendly Options:</strong> Enjoy exceptional value with competitive pricing, combining affordability with top-tier quality.</li>
+            <li class="list-group-item list-item-style"><strong>Effortless Shopping:</strong> Our intuitive platform and dedicated support team make your shopping experience simple and enjoyable.</li>
+            <li class="list-group-item list-item-style"><strong>Prompt Delivery:</strong> Count on us to deliver your purchases swiftly and reliably, every time you shop.</li>
+            
+        </ul>
+    </div>
+</div>
+
+<style>
+    .animate__animated {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+    }
+    .animate__fadeIn {
+        animation-name: fadeIn;
+    }
+    .animate__delay-1s {
+        animation-delay: 1s;
+    }
+    .animate__delay-2s {
+        animation-delay: 2s;
+    }
+    .animate__delay-3s {
+        animation-delay: 3s;
+    }
+    .animate__delay-4s {
+        animation-delay: 4s;
+    }
+    .animate__delay-5s {
+        animation-delay: 5s;
+    }
+    .list-item-style {
+        background-color: #f7f8fa;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .list-item-style:hover {
+        transform: translateY(-6px) scale(1.02);
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+    }
+    .text-primary {
+        color: rgb(90, 110, 130) !important;
+    }
+    .text-white {
+        color: #fefefe !important;
+    }
+    .text-dark {
+        color: #2e3438 !important;
+    }
+    .bg-light {
+        background-color: rgb(240, 250, 220) !important;
+    }
+    .bg-info {
+        background-color: rgb(45, 170, 190) !important;
+    }
+    .bg-warning {
+        background-color: rgb(245, 175, 0) !important;
+    }
+    .p-4 {
+        padding: 1.4rem !important;
+    }
+    .p-3 {
+        padding: 0.9rem !important;
+    }
+    .rounded {
+        border-radius: 12px;
+    }
+    .fs-4 {
+        font-size: 1.3rem;
+    }
+    
+</style>
+
+{% endblock main-content %}

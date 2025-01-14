@@ -1,0 +1,327 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block banner-slider %}
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app/images/banner/bnr1.jpg' %}" class="d-block w-100" alt="Banner Image 1">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b2.jpg' %}" class="d-block w-100" alt="Banner Image 2">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b3.jpg' %}" class="d-block w-100" alt="Banner Image 3">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b4.jpg' %}" class="d-block w-100" alt="Banner Image 4">
+    </div>
+  </div>
+
+  
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<style>
+  
+  #carouselExampleControlsNoTouching {
+    max-width: 90%;
+    margin: 0 auto; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .carousel-item img {
+    transition: transform 0.5s ease-in-out;
+    border-radius: 10px; 
+  }
+
+  .carousel-item.active img {
+    transform: scale(1.05); 
+  }
+
+
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: rgba(255, 255, 255, 0.7); /
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .carousel-control-prev-icon:hover, .carousel-control-next-icon:hover {
+    background-color: rgba(0, 0, 0, 0.5); 
+  }
+
+
+  .carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    transition: transform 0.6s ease;
+  }
+</style>
+
+<script>
+ 
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = new bootstrap.Carousel('#carouselExampleControlsNoTouching', {
+      interval: 4000, 
+      pause: 'false', 
+      wrap: true, 
+    });
+  });
+</script>
+
+{% endblock banner-slider %}
+
+<br><br><br>
+{% block information %}
+<div class="container">
+  <div class="row text-white text-center p-5 border-bottom shadow bg-custom">
+    <h1>Products</h1>
+    <small class="fs-5">
+      Khamar Wala offers a wide range of products in both liquid milk and by product categories.
+      The liquid milk comprises of 5 types of variants and the by-product comprises of 14 types of variants.
+      Khamar Wala offers a wide range of Milk, Doodh Peda, Ice Cream and Dkimed Milk Powder.
+      Discover the finest dairy products crafted to bring freshness and nutrition to your table. From wholesome milk and creamy yogurt to artisan cheeses, butter, and ice creams, our selection caters to every need. Sourced from ethical farms, our products ensure purity, sustainability, and exceptional taste. Whether for daily use or special occasions, our dairy delights promise quality you can trust. Shop easily on our user-friendly website and enjoy premium dairy delivered straight to your doorstep. Taste the difference today!
+    </small>
+  </div>
+</div>
+
+<style>
+  .bg-custom {
+    background: linear-gradient(45deg, #6a1e9c, #9c27b0); /* Lighter Violet shades */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.3);
+  }
+
+  h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color:rgb(15, 199, 245); /* Light off-white for a sleek look */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  small {
+    color: #bdc3c7; /* Light gray for the smaller text */
+    font-size: 1.1rem;
+  }
+
+  .row {
+    transition: transform 0.3s ease;
+  }
+
+  .row:hover {
+    transform: translateY(-10px);
+  }
+</style>
+
+{% endblock information %}
+{% block main-content %}
+<br><br>
+<div class="container">
+  <h1 class="text-center popular-heading">Popular Products</h1>
+</div>
+
+<style>
+  .popular-heading {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, rgb(148, 0, 211), rgb(138, 43, 226));
+    -webkit-background-clip: text;
+    color: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    margin-top: 50px;
+  }
+
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px #8a2be2, 0 0 10px #8a2be2, 0 0 15px #9400d3, 0 0 20px #9400d3; /* Violet shades */
+    }
+    100% {
+      text-shadow: 0 0 10px #8a2be2, 0 0 20px #9400d3, 0 0 30px #8a2be2, 0 0 40px #9400d3; /* Violet shades */
+    }
+}
+
+</style>
+
+  <br><br>
+  <div class="row container mx-auto">
+    <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;">
+      <div class="goodnesssec buttermilk smbg">
+        <a href="{% url 'category' 'GH' %}" class="product-link">
+          <div class="goodnessseccont text-center">
+            <img src="{% static 'app/images/product/buffalo-ghee.png' %}" alt="Attar" class="img-responsive center-block">
+            <p class="mlkpro">Ghee</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;">
+      <div class="goodnesssec buttermilk smbg">
+        <a href="{% url 'category' 'CR' %}" class="product-link">
+          <div class="goodnessseccont text-center">
+            <img src="{% static 'app/images/product/curd-total.png' %}" alt="Perfume" class="img-responsive center-block">
+            <p class="mlkpro">Curd</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;">
+      <div class="goodnesssec buttermilk smbg">
+        <a href="{% url 'category' 'IC' %}" class="product-link">
+          <div class="goodnessseccont text-center">
+            <img src="{% static 'app/images/product/kulfi.png' %}" alt="Soap" class="img-responsive center-block">
+            <p class="mlkpro">Kulfi</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <br><br>
+  <div class="row container mx-auto">
+    <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;">
+      <div class="goodnesssec buttermilk smbg">
+        <a href="{% url 'category' 'ML' %}" class="product-link">
+          <div class="goodnessseccont text-center">
+            <img src="{% static 'app/images/product/milk-shake-chocolate.png' %}" alt="Scent" class="img-responsive center-block">
+            <p class="mlkpro">Milkshake</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;">
+      <div class="goodnesssec buttermilk smbg">
+        <a href="{% url 'category' 'MK' %}" class="product-link">
+          <div class="goodnessseccont text-center">
+            <img src="{% static 'app/images/product/cow-milk.png' %}" alt="Agar" class="img-responsive center-block">
+            <p class="mlkpro">Milk</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;">
+      <div class="goodnesssec buttermilk smbg">
+        <a href="{% url 'category' 'IC' %}" class="product-link">
+          <div class="goodnessseccont text-center">
+            <img src="{% static 'app/images/product/icbars.png' %}" alt="Book" class="img-responsive center-block">
+            <p class="mlkpro">Icebar</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    {% comment %} <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;">
+      <div class="goodnesssec buttermilk smbg">
+        <a href="{% url 'category' 'App' %}" class="product-link">
+          <div class="goodnessseccont text-center">
+            <img src="{% static 'app/images/product/iPadH.png' %}" alt="iPad" class="img-responsive center-block">
+            <p class="mlkpro">iPad</p>
+          </div>
+        </a>
+      </div>
+    </div> {% endcomment %}
+    {% comment %} <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;">
+      <div class="goodnesssec buttermilk smbg">
+        <a href="{% url 'category' 'App' %}" class="product-link">
+          <div class="goodnessseccont text-center">
+            <img src="{% static 'app/images/product/LaptopH.png' %}" alt="Laptop" class="img-responsive center-block">
+            <p class="mlkpro">Laptop</p>
+          </div>
+        </a>
+      </div>
+    </div> {% endcomment %}
+  </div>
+</div>
+
+<style>
+  .container {
+    padding: 40px 0;
+  }
+
+  .text-center {
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .goodnesssec {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .goodnesssec:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .goodnessseccont img {
+    max-width: 100%;
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+  }
+
+  .goodnessseccont:hover img {
+    transform: scale(1.1);
+  }
+
+  .mlkpro {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 15px;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+  }
+
+  .goodnesssec:hover .mlkpro {
+    color: #007bff;
+  }
+
+  .product-link {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .mi-go {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+<br><br>
+<br><br>
+<br><br>
+{% endblock main-content %}
