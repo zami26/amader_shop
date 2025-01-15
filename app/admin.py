@@ -4,9 +4,9 @@ from django.utils.html import format_html
 from django.urls import reverse
 from django.contrib.auth.models import Group
 
-admin.site.site_header = "Amader Shop"
-admin.site.site_title = "This is Amader Shop"
-admin.site.index_title = "Welcome to Amader Shop's Custom Admin Panel"
+admin.site.site_header = "Dairy Baba"
+admin.site.site_title = "This is Dairy Baba"
+admin.site.index_title = "Welcome to Dairy Baba's Custom Admin Panel"
 
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):

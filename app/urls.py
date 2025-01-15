@@ -56,6 +56,6 @@ urlpatterns = [
      
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-admin.site.site_header = "Amader Shop"
-admin.site.site_title = "Amader Shop"
-admin.site.site_index_title = "Welcome to Amader Shop"
+admin.site.site_header = "Dairy Baba"
+admin.site.site_title = "Dairy Baba"
+admin.site.site_index_title = "Welcome to Dairy Baba"
